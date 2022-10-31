@@ -1772,6 +1772,8 @@ static void ufx_usb_disconnect(struct usb_interface *interface)
 
 	mutex_lock(&disconnect_mutex);
 
+	mutex_lock(&disconnect_mutex);
+
 	dev = usb_get_intfdata(interface);
 	info = dev->info;
 
@@ -1793,9 +1795,7 @@ static void ufx_usb_disconnect(struct usb_interface *interface)
 	if (dev->urbs.count > 0)
 		ufx_free_urb_list(dev);
 
-	pr_debug("freeing ufx_data %p", dev);
-
-	unregister_framebuffer(info);
+	/* consider ufx_data freed */
 
 	mutex_unlock(&disconnect_mutex);
 }
