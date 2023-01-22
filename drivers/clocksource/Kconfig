@@ -316,6 +316,9 @@ config ARM_ARCH_TIMER_VCT_ACCESS
 config ARM_ARCH_TIMER_OOL_WORKAROUND
 	bool
 
+config ARM_ARCH_TIMER_OOL_WORKAROUND
+	bool
+
 config FSL_ERRATUM_A008585
 	bool "Workaround for Freescale/NXP Erratum A-008585"
 	default y

@@ -449,7 +449,7 @@ int snd_soc_put_volsw_sx(struct snd_kcontrol *kcontrol,
 	unsigned int val, val_mask, val2 = 0;
 
 	val = ucontrol->value.integer.value[0];
-	if (mc->platform_max && ((int)val + min) > mc->platform_max)
+	if (mc->platform_max && val > mc->platform_max)
 		return -EINVAL;
 	if (val > max)
 		return -EINVAL;
@@ -951,7 +951,11 @@ int snd_soc_put_xr_sx(struct snd_kcontrol *kcontrol,
 	unsigned int i, regval, regmask;
 	int err;
 
+<<<<<<< HEAD
 	if (val < mc->min || ((int)val + min) > mc->max)
+=======
+	if (val < mc->min || val > mc->max)
+>>>>>>> b24371489507 (ACK: Merge branch 'android-4.9-q' of https://android.googlesource.com/kernel/common)
 		return -EINVAL;
 	if (invert)
 		val = max - val;

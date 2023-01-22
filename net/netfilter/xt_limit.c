@@ -195,6 +195,7 @@ static struct xt_match limit_mt_reg __read_mostly = {
 #else
 	.usersize         = offsetof(struct xt_rateinfo, prev),
 #endif
+	.usersize         = offsetof(struct xt_rateinfo, prev),
 	.me               = THIS_MODULE,
 };
 

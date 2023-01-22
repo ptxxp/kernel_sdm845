@@ -831,7 +831,7 @@ static bool unmap_kernel_at_el0(const struct arm64_cpu_capabilities *entry,
 						     ID_AA64PFR0_CSV3_SHIFT);
 }
 
-static void
+static void __nocfi
 kpti_install_ng_mappings(const struct arm64_cpu_capabilities *__unused)
 {
 	typedef void (kpti_remap_fn)(int, int, phys_addr_t);
